@@ -1,0 +1,96 @@
+<p v-cloak>--{{mgs}}++</p>
+<h4 v-text="msg">djkajda</h4>
+v-text 默认没有闪烁问题
+v-text会清空元素中原本的内容
+v-html
+可以吧data.xx中的html标签渲染出来，上面2个只能渲染成文本
+
+v-bind是用来绑定属性的指令  可以简写成:,这个指令会把后面的东西当做JS解析
+<div :haha="woshishuxing+'123'"></div>
+
+v-on 绑定事件 简写@
+<div @click="Fuc"></div>
+
+事件修饰符
+@click.stop
+.stop 组织冒泡
+.capture  先触发外层再触发层次 ——捕获机制
+.self 点当前元素才会触发
+.once  只触发一次
+.prevent 阻止默认事件
+
+.stop和.self的区别  就是前者阻挡所有的冒泡
+.self只阻挡自己冒泡
+比如有3层div 给中间的div加上.self  点击的时候中间的冒泡会被阻止，最外层的不会
+
+v-model双向绑定,且只能运用在表单元素中
+v-model="msg"
+
+<div ：class="{classname1:true,classname2:false}"></div>
+
+v-for循环的时候  key属性只能使用number或者string
+
+全局过滤器
+Vue.filter
+
+Vue.config.keyCodes.f2=113;
+
+全局指令  调用的时候是v-focus
+Vue.directive('focus',{
+  bind(el){
+    <!-- 指令绑定到元素时触发 -->
+    <!-- el.focus()错误 -->
+    <!-- 和样式相关的可以在这里面执行 -->
+  },
+  inserter(el){
+    <!-- 当元素插入到DOM中去的时候 -->
+    <!-- 和JS相关的行为在这里执行 -->
+    el.focus();
+  },
+  updated(el){
+    <!-- 当VNode更新的时候，会执行updated，可能触发多次 -->
+  }
+})
+
+
+Vue.extend来创建全局的组件
+
+Vue.extend({
+  template:'<h3>这是一个组件</h3>>'
+})
+
+Vue.componet('myCom1',com1)
+使用的时候用<my-Com1></my-Com1>
+如果使用驼峰式写法，需要把大写驼峰改为小写字母，同时加入横杠。如果不用驼峰，那就直接写就好
+
+也可以合并写法
+Vue.componet('myCom1',Vue.extend({
+  template:'<h3>这是一个组件</h3>>'
+}))
+
+或者再简写
+Vue.componet('myCom1',{
+template:'<h3>这是一个组件</h3>>'
+})
+
+还有另外牛逼的写法
+html结构中
+<template id="#zujian">
+  <ul>
+    <li>dada</li>
+  </ul>
+</template>
+
+Vue.component('zujian3',{
+  template:'#tmpl'
+})
+
+组件可以有自己的data,但是组件的data必须是一个function,并且return一个对象,组件中data1的使用方式和实例中的data使用方式完全一致
+Vue.component('zujian3', {
+  template: '<h1>{{msg}}</h1>'，
+  data：function(){
+    return {
+      msg：'组件自己的私有data'
+    }
+  }
+})

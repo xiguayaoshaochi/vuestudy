@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" content="">
+  <meta name="viewport"
+    content="width=device-width,height=device-height,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>EAM</title>
+  <!--   <meta name="ad.size" content="width=480,height=320">
+  <script type="text/javascript" src="https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js"> </script>
+  <script type="text/javascript" src="https://s0.2mdn.net/ads/studio/cached_libs/createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js" ></script> -->
+  <!-- mraid tag -->
+  <!-- <script src="mraid.js"></script> -->
+  <style>
+    .v-enter,.v-leave-to{
+      opacity: 0;
+      transform: translateX(-80px);
+    }
+    .v-enter-to,.v-leave{
+      opacity: 1;
+    }
+    .v-enter-active,.v-leave-active{
+      transition: all 2s ease;
+    }
+
+    /* .move-enter,.move-leave-to{
+      opacity: 0;
+      transform: translateX(80px);
+    }
+    .move-enter-to,.move-leave{
+      opacity: 1;
+    }
+    .move-enter-active,.move-leave-active{
+      transition: all 2s ease;
+    } */
+    .ball{
+      width: 50px;height: 50px;border-radius: 50%;background: red;
+    }
+
+    .container{
+      display: flex;
+      height: 200px;
+    }
+
+    .left{
+      flex:2;
+    }
+    .right{
+      flex:2;
+    }
+    .main{
+      flex:6;
+    }
+  </style>
+</head> 
+
+
+<body style="opacity: 1;">
+  <div class="box" id="app">
+    <!-- <input type="text" v-model="firstname" />+
+    <input type="text" v-model="secondname"   />=
+    <input type="text" v-model="totalname" /> -->
+    <!-- <input type="button" value="dianji" @click="flag=!flag"/>
+    <transition>
+      <h3 v-show="flag">woshidonghua</h3>
+    </transition>
+    <hr>
+    
+    
+    <input type="button" value="dianji2" @click="flag2=!flag2" />
+    <transition enter-active-class="bounceIn animated" leave-active-class="bounceOut animated" :duration="5000">
+      <h3 v-show="flag2" class="">woshidonghua</h3>
+    </transition> -->
+    <!-- <input type="button" value="add chart" @click="flag=!flag">
+    <transition 
+    @before-enter="beforeEnter"
+    @enter="Enter"
+    @after-enter="afterEnter"
+    >
+      <div v-show="flag" class="ball"></div>
+    </transition>
+    <div v-for="(val,key) in list">{{val}}</div>
+
+ 
+    <a href="" @click.prevent="zujianname='addnum'">第一个</a>
+    <a href="" @click.prevent="zujianname='addnum2'">第二个</a>
+    <a href="" @click.prevent="zujianname='addnum3'">第三个</a>
+    <transition model="out-in">
+      <component :is="zujianname"></component>
+    </transition>
+    
+  -->
+<!-- <childrencom :pdata="list.name" @func="showdata"></childrencom> -->
+
+    <!-- <login></login>
+    <register></register> -->
+
+    <!-- <a href="#/login">登录</a>
+    <a href="#/register">注册</a> -->
+    
+<!--    <div class="container">
+      <router-view name="left" class="left"></router-view>
+      <router-view name="main" class="main"></router-view>
+      <router-view name="right" class="right"></router-view>
+      
+    </div> -->
+    
+    
+    <!-- 这是vue-router提供的元素，专门用来当做占位符，路由规则匹配到的组件就会展示到此标签中去 -->
+    <!-- <router-view></router-view> -->
+  </div>
+  <template id="testdata">
+    <div>
+      <div>dajkdja--{{pdata}}</div>
+      <input type="button" value="dianji"  @click="senddata">
+    </div>
+  </template>
+
+      <template id="tmp">
+        <div>
+          <div>account组件</div>
+          <router-link to="/account/login">登录</router-link>
+          <router-link to="/account/register">注册</router-link>
+          <router-view></router-view>
+        </div>
+      </template>
+
+  <!-- <script type="text/javascript" src="main.js"></script> -->
+  <!-- <script type="text/javascript">
+    div
+  </script> -->
+
+  <template id="tem">
+    <div>
+      <input type="button" :value="+1" @click="plusnum">
+      <span>第一个组件{{num}}</span>
+    </div>
+  </template>
+
+  <template id="tem2">
+    <div>
+      <input type="button" :value="+1" @click="plusnum">
+      <span>第二个组件{{num}}</span>
+    </div>
+  </template>
+
+  <template id="tem3">
+    <div>
+      <input type="button" :value="+1" @click="plusnum">
+      <span>第三个组件{{num}}</span>
+    </div>
+  </template>
+
+</body>
+
+</html>
